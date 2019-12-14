@@ -1,0 +1,3 @@
+CREATE SEQUENCE cliente_id_cliente OWNED BY Cliente.id_cliente;
+ALTER TABLE cliente ALTER COLUMN id_cliente SET DEFAULT nextval('cliente_id_cliente');
+UPDATE Cliente SET id_cliente = nextval('cliente_id_cliente');

@@ -1,0 +1,79 @@
+CREATE TABLE Impresora(
+	num_serie varchar(100),
+	color varchar(100),
+	garantia integer,
+	modelo_impresora varchar(100)
+);
+
+CREATE TABLE Modelo_Impresora(
+	modelo_impresora varchar(100),
+	marca varchar(100),
+	nombre_comercial varchar(100),
+	tipo_impresora varchar(100),
+	tipo_color_impresora varchar(100),
+	tipo_cartucho varchar(100),
+	alto numeric(3,2),
+	ancho numeric(3,2),
+	profundidad numeric(3,2),
+	capacidad integer,
+	velocidad numeric(4,2),
+	descripcion varchar(100)
+);
+
+CREATE TABLE Proveedor(
+	ruc varchar(100),
+	nombre_comercial varchar(100),
+	score integer,
+	nombre_contacto varchar(100),
+	p_apellido_contacto varchar(100),
+	s_apellido_contacto varchar(100),
+	observaciones varchar(100)
+);
+
+CREATE TABLE Proveedor_Modelo(
+	modelo_impresora varchar(100),
+	ruc_proveedor varchar(100)
+);
+
+CREATE TABLE Telf_Proveedor(
+	telefono varchar(100),
+	ruc_proveedor varchar(100)
+);
+
+CREATE TABLE Stock(
+	id_stock varchar(100),
+	existencias integer,
+	promociones numeric(4,2),
+	precio numeric(5,2),
+	modelo_impresora varchar(100)
+);
+
+CREATE TABLE Venta(
+	id_boleta varchar(100),
+	fecha_venta date,
+	costo_total numeric(10,2),
+	estado varchar(100),
+	user_login varchar(100)
+);
+
+CREATE TABLE Pedido(
+	id_pedido varchar(100),
+	cantidad integer,
+	costo numeric(10,2),
+	id_boleta varchar(100),
+	id_stock varchar(100)
+);
+
+CREATE TABLE Reseña(
+	id_reseña varchar(100),
+	fecha_emision date,
+	descripcion varchar(100),
+	calificacion integer,
+	modelo_impresora varchar(100),
+	user_login varchar(100)
+);
+
+CREATE TABLE Tipo_Usuario(
+	id_tipo_usuario varchar(100),
+	descripcion varchar(100)
+);

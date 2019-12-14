@@ -1,0 +1,177 @@
+CREATE TABLE Login(
+	username VARCHAR(100),
+	password VARCHAR(100),
+	id_tipo_usuario INTEGER
+);
+
+CREATE TABLE Admin(
+	id_admin INTEGER,
+	nombre VARCHAR(100),
+	p_apellido VARCHAR(100),
+	s_apellido VARCHAR(100),
+	cargo VARCHAR(100),
+	login_admin VARCHAR(100)
+);
+CREATE TABLE Cliente(
+	id_cliente INTEGER,
+	score INTEGER,
+	correo_electronico VARCHAR(100),
+	fecha_registro DATE,
+	direccion VARCHAR(100),
+	distrito VARCHAR(100),
+	departamento VARCHAR(100),
+	codigo_postal INTEGER,
+	referencia VARCHAR(100),
+	login_cliente VARCHAR(100)
+);
+
+CREATE TABLE Persona(
+	id_cliente INTEGER,
+	dni VARCHAR(100),
+	fecha_nacimiento DATE,
+	nombre VARCHAR(100),
+	p_apellido VARCHAR(100),
+	s_apellido VARCHAR(100),
+	sexo VARCHAR(1)
+) INHERITS (Cliente);
+
+CREATE TABLE Empresa(
+	id_cliente INTEGER,
+	ruc VARCHAR(100),
+	rubro VARCHAR(100),
+	tipo_regimen VARCHAR(100),
+	razon_social VARCHAR(100),
+	nombre_comercial VARCHAR(100)
+) INHERITS (Cliente);
+
+CREATE TABLE Telf_Cliente(
+	telefono VARCHAR(100),
+	id_cliente INTEGER
+);
+
+CREATE TABLE Tarjeta(
+	nro_tarjeta VARCHAR(100),
+	nombre_titular VARCHAR(100),
+	fecha_vencimiento DATE,
+	CVV VARCHAR(100)
+);
+
+CREATE TABLE Tarjeta_Cliente(
+	id_cliente INTEGER,
+	nro_tarjeta VARCHAR(100)
+);
+CREATE TABLE Impresora(
+	num_serie varchar(100),
+	color varchar(100),
+	garantia integer,
+	modelo_impresora varchar(100)
+);
+
+CREATE TABLE Modelo_Impresora(
+	modelo_impresora varchar(100),
+	marca varchar(100),
+	nombre_comercial varchar(100),
+	tipo_impresora varchar(100),
+	tipo_color_impresora varchar(100),
+	tipo_cartucho varchar(100),
+	alto numeric(3,2),
+	ancho numeric(3,2),
+	profundidad numeric(3,2),
+	capacidad integer,
+	velocidad numeric(4,2),
+	descripcion varchar(100)
+);
+
+CREATE TABLE Proveedor(
+	ruc varchar(100),
+	nombre_comercial varchar(100),
+	score integer,
+	nombre_contacto varchar(100),
+	p_apellido_contacto varchar(100),
+	s_apellido_contacto varchar(100),
+	observaciones varchar(100)
+);
+
+CREATE TABLE Proveedor_Modelo(
+	modelo_impresora varchar(100),
+	ruc_proveedor varchar(100)
+);
+
+CREATE TABLE Telf_Proveedor(
+	telefono varchar(100),
+	ruc_proveedor varchar(100)
+);
+
+CREATE TABLE Stock(
+	id_stock varchar(100),
+	existencias integer,
+	promociones numeric(4,2),
+	precio numeric(5,2),
+	modelo_impresora varchar(100)
+);
+
+CREATE TABLE Venta(
+	id_boleta varchar(100),
+	fecha_venta date,
+	costo_total numeric(10,2),
+	estado varchar(100),
+	user_login varchar(100)
+);
+
+CREATE TABLE Pedido(
+	id_pedido varchar(100),
+	cantidad integer,
+	costo numeric(10,2),
+	id_boleta varchar(100),
+	id_stock varchar(100)
+);
+
+CREATE TABLE Reseña(
+	id_reseña varchar(100),
+	fecha_emision date,
+	descripcion varchar(100),
+	calificacion integer,
+	modelo_impresora varchar(100),
+	user_login varchar(100)
+);
+
+CREATE TABLE Tipo_Usuario(
+	id_tipo_usuario integer,
+	descripcion varchar(100)
+);
+
+ALTER TABLE Impresora ADD PRIMARY KEY(num_serie);
+ALTER TABLE Proveedor_Modelo ADD PRIMARY KEY(modelo_impresora,ruc_proveedor);
+ALTER TABLE Proveedor ADD PRIMARY KEY(ruc);
+ALTER TABLE Modelo_Impresora ADD PRIMARY KEY(modelo_impresora);
+ALTER TABLE Telf_Proveedor ADD PRIMARY KEY(telefono,ruc_proveedor);
+ALTER TABLE Stock ADD PRIMARY KEY(id_stock);
+ALTER TABLE Reseña ADD PRIMARY KEY(id_reseña);
+ALTER TABLE Venta ADD PRIMARY KEY(id_boleta);
+ALTER TABLE Pedido ADD PRIMARY KEY(id_pedido);
+ALTER TABLE Tipo_Usuario ADD PRIMARY KEY(id_tipo_usuario);
+ALTER TABLE Persona ADD PRIMARY KEY(id_cliente);
+ALTER TABLE Empresa ADD PRIMARY KEY(id_cliente);
+ALTER TABLE Admin ADD PRIMARY KEY(id_admin,login_admin);
+ALTER TABLE Cliente ADD PRIMARY KEY(id_cliente);
+ALTER TABLE Login ADD PRIMARY KEY(username);
+ALTER TABLE Tarjeta_Cliente ADD PRIMARY KEY(id_cliente,nro_tarjeta);
+ALTER TABLE Tarjeta ADD PRIMARY KEY(nro_tarjeta);
+ALTER TABLE Telf_Cliente ADD CONSTRAINT fk_telfcliente FOREIGN KEY (id_cliente) REFERENCES Cliente(id_cliente);
+ALTER TABLE Cliente ADD CONSTRAINT unique_logincliente UNIQUE (login_cliente);
+ALTER TABLE Impresora ADD FOREIGN KEY (modelo_impresora) REFERENCES Modelo_Impresora (modelo_impresora);
+ALTER TABLE Proveedor_Modelo ADD FOREIGN KEY (modelo_impresora) REFERENCES Modelo_Impresora (modelo_impresora);
+ALTER TABLE Proveedor_Modelo ADD FOREIGN KEY (ruc_proveedor) REFERENCES Proveedor (ruc);
+ALTER TABLE Telf_Proveedor ADD FOREIGN KEY (ruc_proveedor) REFERENCES Proveedor (ruc);
+ALTER TABLE Stock ADD FOREIGN KEY (modelo_impresora) REFERENCES Modelo_Impresora (modelo_impresora);
+ALTER TABLE Reseña ADD FOREIGN KEY (modelo_impresora) REFERENCES Modelo_Impresora (modelo_impresora);
+ALTER TABLE Reseña ADD FOREIGN KEY (user_login) REFERENCES Login (username);
+ALTER TABLE Venta ADD FOREIGN KEY (user_login) REFERENCES Login (username);
+ALTER TABLE Pedido ADD FOREIGN KEY (id_boleta) REFERENCES Venta (id_boleta);
+ALTER TABLE Pedido ADD FOREIGN KEY (id_stock) REFERENCES Stock (id_stock);
+ALTER TABLE Venta ADD FOREIGN KEY (user_login) REFERENCES Login (username);
+ALTER TABLE Admin ADD FOREIGN KEY (login_admin) REFERENCES Login(username);
+ALTER TABLE Cliente ADD FOREIGN KEY (login_cliente) REFERENCES Login(username);
+ALTER TABLE Login ADD FOREIGN KEY (id_tipo_usuario) REFERENCES Tipo_Usuario(id_tipo_usuario);
+ALTER TABLE Tarjeta_Cliente ADD FOREIGN KEY (nro_tarjeta) REFERENCES Tarjeta(nro_tarjeta);
+ALTER TABLE Tarjeta_Cliente ADD FOREIGN KEY (id_cliente) REFERENCES Cliente (id_cliente);

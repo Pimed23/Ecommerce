@@ -1,0 +1,28 @@
+Nuestra tienda de impresoras para brindar un mejor servicio a nuestros clientes decidio abrir un web service, el cual funcione tanto de catalogo mostrando las cualidades de nuestras productos, como de ecommerce haciendo que puedas tener tu impresora soñada con un solo click.
+
+Para poder poner este proyecto en marcha se deberan considerar los siguientes atributos:
+
+1- Nuestra tienda de impresoras tiene como clientes tanto a empresas como a personas.
+
+2- Para las personas se almacenara su DNI, su fecha de nacimiento, su nombre completo, su sexo, una fecha de registro, un correo electronico, sus numeros de telefono, un score que indicara que tan buen cliente es y su direccion fiscal.
+
+3- En el caso de las empresas se almacenara su RUC, su nombre comercial, su rubro, su tipo de regimen, su razon social, una fecha de registro, un correo electronico, sus numeros de telefono, un score y su direccion fiscal.
+
+4- Para que los clientes puedan realizar una compra en nuestra web, deberan estar registrados en la misma. Al momento de registrarse se pedira a los usuarios un nombre de usuario y una contraseña, ademas de una tarjeta de credito de la cual se almacenara su numero, el nombre del titular, la fecha de vencimiento y el CCV.
+
+5- Una vez el usuario halla sido registrado exitosamente podra realizar compras haciendo pedidos de las diferentes impresoras ofrecidas. Nosotros como empresa queremos almacenar todos los pedidos que realizen los clientes, de estos se tomara en cuenta la cantidad de impresoras y el costo parcial. 
+Una vez el cliente halla realizado todos sus pedidos estos se almacenaran en una venta para poder generarle una boleta, en esta se tendra el costo total (la suma de todos los costos parciales de los pedidos), la fecha de la venta y el estado de la transaccion si esta en proceso o finalizada.  
+
+7- Todas las impresoras tendran un modelo, el cual tiene las siguientes caracteristicas: la marca, el nombre comercial, el tipo de impresora (basicas o multifuncionales), el tipo de cartucho (tinta, toner, recarga continua, etc), el color de impresion (monocromas o color), tambien se almacenaran las dimensiones de la misma (alto, ancho y profundidad), su velocidad y por ultimo una pequeña descripcion.
+
+8- Cada modelo de impresora tendra un stock, el cual debera ser consultado al momento de realizar un pedido, el stock comprendera de el numero de existencias, el precio del modelo y en caso que hubiera promociones de estas mismas. 
+
+9- Para las impresoras se almacenara su numero de serie, su color y la garantia incluida con la compra.
+
+10- Es importante tambien llevar un control de nuestros proveedores, un proveedor debera tener un RUC, un nombre comercial, un score, un representante comercial (del cual almacenaremos su nombre completo), un numero de telefono para poder comunicarnos con la empresa y observaciones realizadas por nosotros.
+
+11- Por ultimo, se quiere que cada vez que se realice una venta, el cliente tenga la posibilidad de realizar un reseña del producto que esta comprando. De la reseña se debera almacenar la fecha de emision, la calificacion del producto (de 1 a 5) y la descripcion realizada por el cliente.
+
+https://stackoverflow.com/questions/23508176/insert-current-date-or-time-into-mysql
+
+

@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.1" last-position="0,0" last-zoom="0.45"
+	 default-schema="public" default-owner="postgres">
+<role name="brian"
+      superuser="true"
+      createdb="true"
+      createrole="true"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<database name="pfinal_impresora_beta" encoding="UTF8" lc-collate="en_US.UTF-8" lc-ctype="en_US.UTF-8" is-template="false" allow-conns="true">
+	<role name="postgres"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="login">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1760" y="540"/>
+	<column name="username" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="password">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="id_tipo_usuario">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="login_pkey" type="pk-constr" table="public.login">
+		<columns names="username" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="admin" hide-ext-attribs="true">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="2220" y="140"/>
+	<column name="id_admin" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nombre">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="p_apellido">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="s_apellido">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="cargo">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="login_admin" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="admin_pkey" type="pk-constr" table="public.admin">
+		<columns names="id_admin,login_admin" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="cliente">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1180" y="300"/>
+	<column name="id_cliente" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="score">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="correo_electronico">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="fecha_registro">
+		<type name="date" length="0"/>
+	</column>
+	<column name="direccion">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="distrito">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="departamento">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="codigo_postal">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="referencia">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="login_cliente">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="cliente_pkey" type="pk-constr" table="public.cliente">
+		<columns names="id_cliente" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="unique_logincliente" type="uq-constr" table="public.cliente">
+		<columns names="login_cliente" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="persona">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="620" y="40"/>
+	<column name="id_cliente" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="dni">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="fecha_nacimiento">
+		<type name="date" length="0"/>
+	</column>
+	<column name="nombre">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="p_apellido">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="s_apellido">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="sexo">
+		<type name="character varying" length="1"/>
+	</column>
+	<constraint name="persona_pkey" type="pk-constr" table="public.persona">
+		<columns names="id_cliente" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="empresa" hide-ext-attribs="true">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1780" y="60"/>
+	<column name="id_cliente" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="ruc">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="rubro">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="tipo_regimen">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="razon_social">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="nombre_comercial">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="empresa_pkey" type="pk-constr" table="public.empresa">
+		<columns names="id_cliente" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="telf_cliente">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="660" y="400"/>
+	<column name="telefono">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="id_cliente">
+		<type name="integer" length="0"/>
+	</column>
+</table>
+
+<table name="tarjeta">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="180" y="500"/>
+	<column name="nro_tarjeta" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="nombre_titular">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="fecha_vencimiento">
+		<type name="date" length="0"/>
+	</column>
+	<column name="cvv">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="tarjeta_pkey" type="pk-constr" table="public.tarjeta">
+		<columns names="nro_tarjeta" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="tarjeta_cliente">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="760" y="580"/>
+	<column name="id_cliente" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nro_tarjeta" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="tarjeta_cliente_pkey" type="pk-constr" table="public.tarjeta_cliente">
+		<columns names="id_cliente,nro_tarjeta" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="impresora">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="160" y="660"/>
+	<column name="num_serie" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="color">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="garantia">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="modelo_impresora">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="impresora_pkey" type="pk-constr" table="public.impresora">
+		<columns names="num_serie" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="modelo_impresora">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="760" y="780"/>
+	<column name="modelo_impresora" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="marca">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="nombre_comercial">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="tipo_impresora">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="tipo_color_impresora">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="tipo_cartucho">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="alto">
+		<type name="numeric" length="3" precision="2"/>
+	</column>
+	<column name="ancho">
+		<type name="numeric" length="3" precision="2"/>
+	</column>
+	<column name="profundidad">
+		<type name="numeric" length="3" precision="2"/>
+	</column>
+	<column name="capacidad">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="velocidad">
+		<type name="numeric" length="4" precision="2"/>
+	</column>
+	<column name="descripcion">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="modelo_impresora_pkey" type="pk-constr" table="public.modelo_impresora">
+		<columns names="modelo_impresora" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="proveedor">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="160" y="1060"/>
+	<column name="ruc" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="nombre_comercial">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="score">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nombre_contacto">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="p_apellido_contacto">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="s_apellido_contacto">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="observaciones">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="proveedor_pkey" type="pk-constr" table="public.proveedor">
+		<columns names="ruc" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="proveedor_modelo">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="100" y="880"/>
+	<column name="modelo_impresora" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="ruc_proveedor" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="proveedor_modelo_pkey" type="pk-constr" table="public.proveedor_modelo">
+		<columns names="modelo_impresora,ruc_proveedor" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="telf_proveedor">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="760" y="1100"/>
+	<column name="telefono" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="ruc_proveedor" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="telf_proveedor_pkey" type="pk-constr" table="public.telf_proveedor">
+		<columns names="telefono,ruc_proveedor" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="stock">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1280" y="740"/>
+	<column name="id_stock" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="existencias">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="promociones">
+		<type name="numeric" length="4" precision="2"/>
+	</column>
+	<column name="precio">
+		<type name="numeric" length="5" precision="2"/>
+	</column>
+	<column name="modelo_impresora">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="stock_pkey" type="pk-constr" table="public.stock">
+		<columns names="id_stock" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="venta">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1780" y="840"/>
+	<column name="id_boleta" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="fecha_venta">
+		<type name="date" length="0"/>
+	</column>
+	<column name="costo_total">
+		<type name="numeric" length="10" precision="2"/>
+	</column>
+	<column name="estado">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="user_login">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="venta_pkey" type="pk-constr" table="public.venta">
+		<columns names="id_boleta" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="pedido">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1780" y="1120"/>
+	<column name="id_pedido" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="cantidad">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="costo">
+		<type name="numeric" length="10" precision="2"/>
+	</column>
+	<column name="id_boleta">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="id_stock">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="pedido_pkey" type="pk-constr" table="public.pedido">
+		<columns names="id_pedido" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="reseña">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1220" y="1100"/>
+	<column name="id_reseña" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="fecha_emision">
+		<type name="date" length="0"/>
+	</column>
+	<column name="descripcion">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="calificacion">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="modelo_impresora">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="user_login">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="reseña_pkey" type="pk-constr" table="public.&quot;reseña&quot;">
+		<columns names="id_reseña" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="tipo_usuario">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="2240" y="740"/>
+	<column name="id_tipo_usuario" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="descripcion">
+		<type name="character varying" length="100"/>
+	</column>
+	<constraint name="tipo_usuario_pkey" type="pk-constr" table="public.tipo_usuario">
+		<columns names="id_tipo_usuario" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="empresa_inherits_cliente" type="relgen"
+	 pk-pattern="{dt}_pk"
+	 custom-color="#f3d239"
+	 src-table="public.empresa"
+	 dst-table="public.cliente"/>
+
+<relationship name="persona_inherits_cliente" type="relgen"
+	 pk-pattern="{dt}_pk"
+	 custom-color="#099671"
+	 src-table="public.persona"
+	 dst-table="public.cliente">
+	<label ref-type="name-label">
+		<position x="-3.05699" y="-55.742"/>
+	</label>
+</relationship>
+
+<constraint name="login_id_tipo_usuario_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.tipo_usuario" table="public.login">
+	<columns names="id_tipo_usuario" ref-type="src-columns"/>
+	<columns names="id_tipo_usuario" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="admin_login_admin_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.login" table="public.admin">
+	<columns names="login_admin" ref-type="src-columns"/>
+	<columns names="username" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="cliente_login_cliente_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.login" table="public.cliente">
+	<columns names="login_cliente" ref-type="src-columns"/>
+	<columns names="username" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_telfcliente" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.cliente" table="public.telf_cliente">
+	<columns names="id_cliente" ref-type="src-columns"/>
+	<columns names="id_cliente" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="tarjeta_cliente_nro_tarjeta_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.tarjeta" table="public.tarjeta_cliente">
+	<columns names="nro_tarjeta" ref-type="src-columns"/>
+	<columns names="nro_tarjeta" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="tarjeta_cliente_id_cliente_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.cliente" table="public.tarjeta_cliente">
+	<columns names="id_cliente" ref-type="src-columns"/>
+	<columns names="id_cliente" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="impresora_modelo_impresora_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.modelo_impresora" table="public.impresora">
+	<columns names="modelo_impresora" ref-type="src-columns"/>
+	<columns names="modelo_impresora" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="proveedor_modelo_modelo_impresora_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.modelo_impresora" table="public.proveedor_modelo">
+	<columns names="modelo_impresora" ref-type="src-columns"/>
+	<columns names="modelo_impresora" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="proveedor_modelo_ruc_proveedor_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.proveedor" table="public.proveedor_modelo">
+	<columns names="ruc_proveedor" ref-type="src-columns"/>
+	<columns names="ruc" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="telf_proveedor_ruc_proveedor_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.proveedor" table="public.telf_proveedor">
+	<columns names="ruc_proveedor" ref-type="src-columns"/>
+	<columns names="ruc" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="stock_modelo_impresora_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.modelo_impresora" table="public.stock">
+	<columns names="modelo_impresora" ref-type="src-columns"/>
+	<columns names="modelo_impresora" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="venta_user_login_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.login" table="public.venta">
+	<columns names="user_login" ref-type="src-columns"/>
+	<columns names="username" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="venta_user_login_fkey1" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.login" table="public.venta">
+	<columns names="user_login" ref-type="src-columns"/>
+	<columns names="username" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="pedido_id_boleta_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.venta" table="public.pedido">
+	<columns names="id_boleta" ref-type="src-columns"/>
+	<columns names="id_boleta" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="pedido_id_stock_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.stock" table="public.pedido">
+	<columns names="id_stock" ref-type="src-columns"/>
+	<columns names="id_stock" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="reseña_modelo_impresora_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.modelo_impresora" table="public.&quot;reseña&quot;">
+	<columns names="modelo_impresora" ref-type="src-columns"/>
+	<columns names="modelo_impresora" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="reseña_user_login_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.login" table="public.&quot;reseña&quot;">
+	<columns names="user_login" ref-type="src-columns"/>
+	<columns names="username" ref-type="dst-columns"/>
+</constraint>
+
+<relationship name="rel_login_tipo_usuario" type="relfk"
+	 custom-color="#bc8206"
+	 src-table="public.login"
+	 dst-table="public.tipo_usuario" reference-fk="login_id_tipo_usuario_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_admin_login" type="relfk"
+	 custom-color="#30fd92"
+	 src-table="public.admin"
+	 dst-table="public.login" reference-fk="admin_login_admin_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_cliente_login" type="relfk"
+	 custom-color="#4eced9"
+	 src-table="public.cliente"
+	 dst-table="public.login" reference-fk="cliente_login_cliente_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_telf_cliente_cliente" type="relfk"
+	 custom-color="#b5c796"
+	 src-table="public.telf_cliente"
+	 dst-table="public.cliente" reference-fk="fk_telfcliente"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_tarjeta_cliente_tarjeta" type="relfk"
+	 custom-color="#016e59"
+	 src-table="public.tarjeta_cliente"
+	 dst-table="public.tarjeta" reference-fk="tarjeta_cliente_nro_tarjeta_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_tarjeta_cliente_cliente" type="relfk"
+	 custom-color="#30ed98"
+	 src-table="public.tarjeta_cliente"
+	 dst-table="public.cliente" reference-fk="tarjeta_cliente_id_cliente_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_impresora_modelo_impresora" type="relfk"
+	 custom-color="#67be4c"
+	 src-table="public.impresora"
+	 dst-table="public.modelo_impresora" reference-fk="impresora_modelo_impresora_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_proveedor_modelo_modelo_impresora" type="relfk"
+	 custom-color="#641b5d"
+	 src-table="public.proveedor_modelo"
+	 dst-table="public.modelo_impresora" reference-fk="proveedor_modelo_modelo_impresora_fkey"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="-49.9484" y="-34.2607"/>
+	</label>
+</relationship>
+
+<relationship name="rel_proveedor_modelo_proveedor" type="relfk"
+	 custom-color="#3cfa2e"
+	 src-table="public.proveedor_modelo"
+	 dst-table="public.proveedor" reference-fk="proveedor_modelo_ruc_proveedor_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_telf_proveedor_proveedor" type="relfk"
+	 custom-color="#b705f4"
+	 src-table="public.telf_proveedor"
+	 dst-table="public.proveedor" reference-fk="telf_proveedor_ruc_proveedor_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_stock_modelo_impresora" type="relfk"
+	 custom-color="#b49f9b"
+	 src-table="public.stock"
+	 dst-table="public.modelo_impresora" reference-fk="stock_modelo_impresora_fkey"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="-27.0713" y="-74.2607"/>
+	</label>
+</relationship>
+
+<relationship name="rel_venta_login" type="relfk"
+	 custom-color="#dcd61d"
+	 src-table="public.venta"
+	 dst-table="public.login" reference-fk="venta_user_login_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_venta_login1" type="relfk"
+	 custom-color="#919625"
+	 src-table="public.venta"
+	 dst-table="public.login" reference-fk="venta_user_login_fkey1"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_pedido_venta" type="relfk"
+	 custom-color="#dd119d"
+	 src-table="public.pedido"
+	 dst-table="public.venta" reference-fk="pedido_id_boleta_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_pedido_stock" type="relfk"
+	 custom-color="#1d02af"
+	 src-table="public.pedido"
+	 dst-table="public.stock" reference-fk="pedido_id_stock_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_reseña_modelo_impresora&quot;" type="relfk"
+	 custom-color="#f53186"
+	 src-table="public.&quot;reseña&quot;"
+	 dst-table="public.modelo_impresora" reference-fk="reseña_modelo_impresora_fkey"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_reseña_login&quot;" type="relfk"
+	 custom-color="#45a870"
+	 src-table="public.&quot;reseña&quot;"
+	 dst-table="public.login" reference-fk="reseña_user_login_fkey"
+	 src-required="false" dst-required="false"/>
+
+</dbmodel>
