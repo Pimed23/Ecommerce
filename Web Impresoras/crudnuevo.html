@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cabecera</title>
+<link rel="stylesheet" href="css/crud.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/ajax.js"></script>
+</head>
+<body>
+    <div id="cabecera">
+        <div id="c_logo">
+            
+        </div>
+        <ul id="c_menu">
+            <li><a href="crudelimus.html">Eliminar usuario</a></li>
+            <li><a href="crudelim.html">Eliminar Producto</a></li>
+            <li><a href="crudmod.html">Agregar Stock</a></li>
+            <li><a href="crudnuevo.html">Nuevo Producto</a></li>
+        </ul>
+
+    </div>
+    <div id="contenido">
+        <h2>Insertar Nuevo Producto</h2>
+        <form id="formularioinsertarproducto" action="camino/a/el/script" method="post">
+            Modelo<input type="text"><br>
+            Capacidad<input type="text"><br>
+            Descripcion<input type="text"><br>
+            Marca<input type="text"><br>
+            Velocidad<input type="text"><br>
+            Tipo<input type="text"><br>
+            Nombre Comercial<input type="text"><br>
+            Tipo color impresión<input type="text"><br>
+            Tipo Cartucho<input type="text"><br>
+            Alto<input type="text"><br>
+            Profundidad<input type="text"><br>
+            Ancho<input type="text"><br>
+            
+            <input type="submit" value="Añadir">
+        </form>
+        <div id="formularioinsertarproductoresultado"></div>
+    </div>
+    <div id="contenido">
+        <h2>Insertar Nuevo Proveedor</h2>
+        <form id="formularioinsertarproveedor" action="camino/a/el/script" method="post">
+            RUC<input type="number"><br>
+            Nombre compañia<input type="text"><br>
+            Score<input type="number"><br>
+            Nombre contacto<input type="text"><br>
+            P. Apellido contacto<input type="text"><br>
+            S. Apellido contacto<input type="text"><br>
+            Observaciones<input type="text"><br>
+            <input type="submit" value="Añadir">
+        </form>
+        <div id="formularioinsertarproveedorresultado"></div>
+    </div>
+    
+</body>
+</html>
