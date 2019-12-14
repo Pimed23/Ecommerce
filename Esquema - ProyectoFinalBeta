@@ -175,3 +175,6 @@ ALTER TABLE Cliente ADD FOREIGN KEY (login_cliente) REFERENCES Login(username);
 ALTER TABLE Login ADD FOREIGN KEY (id_tipo_usuario) REFERENCES Tipo_Usuario(id_tipo_usuario);
 ALTER TABLE Tarjeta_Cliente ADD FOREIGN KEY (nro_tarjeta) REFERENCES Tarjeta(nro_tarjeta);
 ALTER TABLE Tarjeta_Cliente ADD FOREIGN KEY (id_cliente) REFERENCES Cliente (id_cliente);
+CREATE SEQUENCE cliente_id_cliente OWNED BY Cliente.id_cliente;
+ALTER TABLE cliente ALTER COLUMN id_cliente SET DEFAULT nextval('cliente_id_cliente');
+UPDATE Cliente SET id_cliente = nextval('cliente_id_cliente');
