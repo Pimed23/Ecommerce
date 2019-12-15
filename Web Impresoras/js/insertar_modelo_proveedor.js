@@ -1,4 +1,4 @@
-function getFormData( $form ){
+/*function getFormData( $form ){
     var unindexed_array = $form.serializeArray();
     var indexed_array = {};
 
@@ -7,13 +7,12 @@ function getFormData( $form ){
     });
 
     return indexed_array;
-}
+}*/
 
 $(document).ready(function() {
     $('#formularioinsertarproducto').submit(function(event) {
         event.preventDefault();
-        var $form = $("#formularioinsertarproducto");
-        var data_producto = getFormData($form);
+        var data_producto = $(this).serialize();
         $.ajax({
             url: 'http://192.168.0.179:8000/tipocartucho/', // action
             type: 'post',        // method
@@ -36,8 +35,7 @@ $(document).ready(function() {
 $(document).ready(function() {
     $('#formularioinsertarproveedor').submit(function(event) {
         event.preventDefault();
-        var $form = $("#formularioinsertarproveedor");
-        var data_proveedor = getFormData($form);
+        var data_proveedor = $(this).serialize();
         $.ajax({
             url: 'http://192.168.0.179:8000/tipocartucho/', // action
             type: 'post',        // method
