@@ -262,7 +262,7 @@ CREATE OR REPLACE FUNCTION insertar_impresora(
 		DECLARE
 		respuesta TEXT = 'Se registro exitosamente';
 		BEGIN
-			INSERT INTO admin(
+			INSERT INTO impresora(
 				num_serie,
 				color,
 				garantia,
@@ -297,7 +297,7 @@ CREATE OR REPLACE FUNCTION insertar_proveedor(
 		DECLARE
 		respuesta TEXT = 'Se registro exitosamente';
 		BEGIN
-			INSERT INTO admin(
+			INSERT INTO proveedor(
 				ruc,
 				nombre_comercial,
 				score,
