@@ -1,0 +1,213 @@
+/* Colores */
+/* 
+    #183256
+    #153658
+    #546A80
+    #6E7E8D
+    #CAD1D3
+*/
+
+/* Fuente */
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap');
+
+/* Neutralidad */
+*{
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+}
+a{
+    color:white;
+    text-decoration: none;
+}
+
+/* Cabecera */
+
+#cabecera{
+    background-color: #183256;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+}
+#c_logo{
+    float: left;
+    width: 80px;
+    height: 80px;
+    margin-left: 20px;
+    margin-top: 10px;
+    background-image: url(../images/Sin%20t%C3%ADtulo.png);
+    display: block;
+    background-size: cover;
+}
+#c_menu{
+    display: block;
+    float: right;
+    width: 80%;
+    margin-top: 42px;
+    overflow: hidden;
+}
+#c_menu li{
+    display: inline;
+    width: 15%;
+    margin-right: 5%;
+    height: 20%;
+    float: right;
+    text-align: center;
+}
+#c_menu li:hover{
+    cursor: pointer;
+}
+/* Cuerpo */
+
+#cuerpo{
+    width: 90%;
+    overflow: hidden;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+#nombre{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 24px;
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#cuerpoimpre{
+    width: 100%;
+    overflow: hidden;
+}
+#separ{
+    border-bottom: 1px solid gray;
+    height: 1px;
+    color: white;
+    width: 100%;
+}
+#imagen{
+    width: 40%;
+    float: left;
+}
+#datos{
+    width: 40%;
+    float: left;
+}
+#comprar{
+    width: 20%;
+    float: left;
+}
+#imagenimpre{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 40px;
+}
+#datos ul{
+    font-family: 'Ubuntu', sans-serif;
+    color: gray;
+    font-size: 20px;
+    padding-left: 100px;
+    padding-top: 20px;
+}
+#datos ul li{
+    padding-bottom: 5px;
+}
+#comprar h2{
+    margin-top: 40px;
+    width: 80%;
+    margin-left: 5%;
+    color: black;
+}
+#comprarbot{
+    width: 80%;
+    border: 2px darkorange solid;
+    background-color: darkorange;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#comprarbot:hover{
+    cursor: pointer;
+}
+#resenaswrap{
+    width: 90%;
+    margin: 0 auto;
+}
+#resenatotal{
+    width: 30%;
+    float: left;
+}
+#estrellastotal{
+    width: 80%;
+    margin: 0 auto;
+    height: auto;
+    margin-top: 30px;
+}
+#resenas{
+    width: 60%;
+    float: left;
+    margin-top: 40px;
+    margin-left: 10%;
+}
+.resenabox{
+    width: 70%;
+    margin: 0 auto;
+    padding-left: 5%;
+    padding-right: 5%;
+    border: 1px solid gray;
+    border-radius: 20px;
+}#estrellas{
+    width: 40%;
+    margin-left: 5%;
+    margin-top: 10px;
+}
+#usuarioestrellas{
+    color: grey;
+    margin-left: 5%;
+}
+#texto{
+    width: 90%;
+    margin: 0 auto;
+    color: black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Foooter */
+footer{
+    padding-bottom: 40px;
+}
+.container-footer{
+    width: 100%;
+    max-width: 1300px;
+    margin:auto;
+}
+
+.imglogofooter{
+    width: 80px;
+    display: block;
+    margin:auto;
+    padding: 30px;
+}
+
+.container-social-icon{
+    width: 200px;
+    margin:auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+
+.img-red-footer{
+    width: 40px;
+}
+

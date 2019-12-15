@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cabecera</title>
+<link rel="stylesheet" href="css/crud.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/slider.js"></script>
+</head>
+<body>
+    <div id="cabecera">
+        <div id="c_logo">
+            
+        </div>
+        <ul id="c_menu">
+            <li><a href="crudelimus.html">Eliminar usuario</a></li>
+            <li><a href="crudelim.html">Eliminar Producto</a></li>
+            <li><a href="crudmod.html">Agregar Stock</a></li>
+            <li><a href="crudnuevo.html">Nuevo Producto</a></li>
+        </ul>
+
+    </div>
+    <div id="contenido">
+        <h2>Eliminar Producto</h2>
+        <form id="formularioeliminarproductoporid" action="camino/a/el/script" method="post">
+            Identificador<input type="text"><br>
+            <input type="submit" value="Eliminar">
+        </form>
+        <div id="formularioeliminarproductoporidresultado"></div>
+    </div>
+    <div id="busqueda">
+        <h2>Buscar por nombre</h2>
+        <form id="formulariobusquedaproductopornombre">
+            Nombre<input type="text"><br>
+            <input type="submit" value="Buscar">
+        </form>
+        <div id="formulariobusquedaproductopornombreresultado"></div>
+    </div>
+</body>
+</html>

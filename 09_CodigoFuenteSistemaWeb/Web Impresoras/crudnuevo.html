@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cabecera</title>
+<link rel="stylesheet" href="css/crud.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/insertar_modelo_proveedor.js"></script>
+</head>
+<body>
+    <div id="cabecera">
+        <div id="c_logo">
+            
+        </div>
+        <ul id="c_menu">
+            <li><a href="crudelimus.html">Eliminar usuario</a></li>
+            <li><a href="crudelim.html">Eliminar Producto</a></li>
+            <li><a href="crudmod.html">Agregar Stock</a></li>
+            <li><a href="crudnuevo.html">Nuevo Producto</a></li>
+        </ul>
+
+    </div>
+    <div id="contenido">
+        <h2>Insertar Nuevo Producto</h2>
+        <form id="formularioinsertarproducto" method="post">
+            Modelo<input type="text" name="modelo_impresora" id="modelo_impresora" ><br>
+            Capacidad<input type="text" name="capacidad" id="capacidad"><br>
+            Descripcion<input type="text" name="descripcion" id="descripcion"><br>
+            Marca<input type="text" name="marca" id="marca"><br>
+            Velocidad<input type="text" name="velocidad" id="velocidad"><br>
+            Tipo<input type="text" name="tipo_impresora" id="tipo_impresora"><br>
+            Nombre Comercial<input type="text" name="nombre_comercial" id="nombre_comercial"><br>
+            Tipo color impresión<input type="text" name="tipo_color_impresora" id="tipo_color_impresora"><br>
+            Tipo Cartucho<input type="text" name="tipo_cartucho" id="tipo_cartucho"><br>
+            Alto<input type="text" name="alto" id="alto"><br>
+            Profundidad<input type="text" name="profundidad" id="profundidad"><br>
+            Ancho<input type="text" name="ancho" id="ancho"><br>
+            <input type="submit" value="Añadir">
+        </form>
+        <div id="formularioinsertarproductoresultado"></div>
+    </div>
+    <div id="contenido">
+        <h2>Insertar Nuevo Proveedor</h2>
+        <form id="formularioinsertarproveedor" method="post">
+            RUC<input type="text" name="ruc" id="ruc" ><br>
+            Nombre compañia<input type="text" name="nombre_comercial" id="nombre_comercial"><br>
+            Nombre contacto<input type="text" name="nombre_contacto" id="nombre_contacto"><br>
+            P. Apellido contacto<input type="text" name="p_apellido_contacto" id="p_apellido_contacto"><br>
+            S. Apellido contacto<input type="text" name="s_apellido_contacto" id="s_apellido_contacto"><br>
+            Observaciones<input type="text" name="observaciones" id="observaciones"><br>
+            <input type="submit" value="Añadir">
+        </form>
+        <div id="formularioinsertarproveedorresultado"></div>
+    </div>
+    
+</body>
+</html>
