@@ -1,0 +1,361 @@
+CREATE OR REPLACE FUNCTION insertar_modelo_impresora( 
+	_modelo_impresora varchar(100),
+	_marca varchar(100),
+	_nombre_comercial varchar(100),
+	_tipo_impresora varchar(100),
+	_tipo_color_impresora varchar(100),
+	_tipo_cartucho varchar(100),
+	_alto numeric(3,2),
+	_ancho numeric(3,2),
+	_profundidad numeric(3,2),
+	_capacidad integer,
+	_velocidad numeric(4,2),
+	_descripcion varchar(500))
+	RETURNS TEXT
+	AS $$
+		DECLARE
+			respuesta TEXT = 'Se registro exitosamente';
+		BEGIN
+			INSERT INTO modelo_impresora(
+				modelo_impresora,
+				marca,
+				nombre_comercial,
+				tipo_impresora,
+				tipo_color_impresora,
+				tipo_cartucho,
+				alto,
+				ancho,
+				profundidad,
+				capacidad,
+				velocidad,
+				descripcion)
+			VALUES (_modelo_impresora,
+				_marca,
+				_nombre_comercial,
+				_tipo_impresora,
+				_tipo_color_impresora,
+				_tipo_cartucho,
+				_alto,
+				_ancho,
+				_profundidad,
+				_capacidad,
+				_velocidad,
+				_descripcion);
+			RETURN respuesta;
+		EXCEPTION
+			WHEN unique_violation THEN
+				RETURN 'ID en uso.';
+			WHEN OTHERS THEN
+				RETURN 'A ocurrido un error interno.';	
+		END;
+	$$
+LANGUAGE plpgsql;
+
+
+
+
+
+CREATE OR REPLACE FUNCTION insertar_login( 
+	_username VARCHAR(100),
+	_password VARCHAR(100),
+	_id_tipo_usuario INTEGER)
+	RETURNS TEXT
+	AS $$
+		DECLARE
+			respuesta TEXT = 'Se registro exitosamente';
+		BEGIN
+			INSERT INTO login(
+				username,
+				password,
+				id_tipo_usuario)
+			VALUES (_username,
+				_password,
+				_id_tipo_usuario);
+			RETURN respuesta;
+		EXCEPTION
+		WHEN unique_violation THEN
+			RETURN 'ID en uso.';
+
+		WHEN OTHERS THEN
+			RETURN 'A ocurrido un error interno.';
+		END;
+	$$
+LANGUAGE plpgsql;
+
+
+
+
+
+CREATE OR REPLACE FUNCTION insertar_empresa( 
+	_correo_electronico VARCHAR(100),
+	_direccion VARCHAR(100),
+	_distrito VARCHAR(100),
+	_departamento VARCHAR(100),
+	_codigo_postal INTEGER,
+	_referencia VARCHAR(100),
+	_login_cliente VARCHAR(100),
+	_ruc VARCHAR(100),
+	_rubro VARCHAR(100),
+	_tipo_regimen VARCHAR(100),
+	_razon_social VARCHAR(100),
+	_nombre_comercial VARCHAR(100))
+	RETURNS TEXT
+	AS $$
+		DECLARE
+			respuesta TEXT = 'Se registro exitosamente';
+		BEGIN
+			INSERT INTO empresa(
+				score,
+				correo_electronico,
+				fecha_registro,
+				direccion,
+				distrito,
+				departamento,
+				codigo_postal,
+				referencia,
+				login_cliente,
+				ruc,
+				rubro,
+				tipo_regimen,
+				razon_social,
+				nombre_comercial)
+			VALUES (
+				0,
+				_correo_electronico,
+				current_date,
+				_direccion,
+				_distrito,
+				_departamento,
+				_codigo_postal,
+				_referencia,
+				_login_cliente,
+				_ruc,
+				_rubro,
+				_tipo_regimen,
+				_razon_social,
+				_nombre_comercial);
+			RETURN respuesta;
+		EXCEPTION
+		WHEN unique_violation THEN
+			RETURN 'ID en uso.';
+		WHEN OTHERS THEN
+			RETURN 'A ocurrido un error interno.';
+		END;
+	$$
+LANGUAGE plpgsql;
+
+
+
+
+CREATE OR REPLACE FUNCTION insertar_persona( 
+	_correo_electronico VARCHAR(100),
+	_direccion VARCHAR(100),
+	_distrito VARCHAR(100),
+	_departamento VARCHAR(100),
+	_codigo_postal INTEGER,
+	_referencia VARCHAR(100),
+	_login_cliente VARCHAR(100),
+	_dni VARCHAR(100),
+	_fecha_nacimiento DATE,
+	_nombre VARCHAR(100),
+	_p_apellido VARCHAR(100),
+	_s_apellido VARCHAR(100),
+	_sexo VARCHAR(1))
+	RETURNS TEXT
+	AS $$
+		DECLARE
+			respuesta TEXT = 'Se registro exitosamente';
+		BEGIN
+			INSERT INTO persona(
+				score,
+				correo_electronico,
+				fecha_registro,
+				direccion,
+				distrito,
+				departamento,
+				codigo_postal,
+				referencia,
+				login_cliente,
+				dni,
+				fecha_nacimiento,
+				nombre,
+				p_apellido,
+				s_apellido,
+				sexo)
+			VALUES (
+				0,
+				_correo_electronico,
+				current_date,
+				_direccion,
+				_distrito,
+				_departamento,
+				_codigo_postal,
+				_referencia,
+				_login_cliente,
+				_dni,
+				_fecha_nacimiento,
+				_nombre,
+				_p_apellido,
+				_s_apellido,
+				_sexo);
+			RETURN respuesta;
+		EXCEPTION
+			WHEN unique_violation THEN
+				RETURN 'ID en uso.';
+			WHEN OTHERS THEN
+				RETURN 'A ocurrido un error interno.';
+		END;
+	$$
+LANGUAGE plpgsql;
+
+
+
+
+
+CREATE OR REPLACE FUNCTION insertar_admin( 
+	_id_admin INTEGER,
+	_nombre VARCHAR(100),
+	_p_apellido VARCHAR(100),
+	_s_apellido VARCHAR(100),
+	_cargo VARCHAR(100),
+	_login_admin VARCHAR(100))
+	RETURNS TEXT
+	AS $$
+		DECLARE
+		respuesta TEXT = 'Se registro exitosamente';
+		BEGIN
+			INSERT INTO admin(
+				id_admin,
+				nombre,
+				p_apellido,
+				s_apellido,
+				cargo,
+				login_admin)
+			VALUES (
+				_id_admin,
+				_nombre,
+				_p_apellido,
+				_s_apellido,
+				_cargo,
+				_login_admin);
+			RETURN respuesta;
+		EXCEPTION
+			WHEN unique_violation THEN
+				RETURN 'ID en uso.';
+			WHEN OTHERS THEN
+				RETURN 'A ocurrido un error interno.';
+		END;
+	$$
+LANGUAGE plpgsql;
+
+
+
+	
+		
+CREATE OR REPLACE FUNCTION insertar_impresora( 
+	_num_serie varchar(100),
+	_color varchar(100),
+	_garantia integer,
+	_modelo_impresora varchar(100))
+	RETURNS TEXT
+	AS $$
+		DECLARE
+		respuesta TEXT = 'Se registro exitosamente';
+		BEGIN
+			INSERT INTO admin(
+				num_serie,
+				color,
+				garantia,
+				modelo_impresora) 
+			VALUES (
+				num_serie,
+				color,
+				garantia,
+				modelo_impresora);
+			RETURN respuesta;
+		EXCEPTION
+			WHEN unique_violation THEN
+				RETURN 'ID en uso.';
+			WHEN OTHERS THEN
+				RETURN 'A ocurrido un error interno.';
+		END;
+	$$
+LANGUAGE plpgsql;
+
+
+
+
+CREATE OR REPLACE FUNCTION insertar_proveedor( 
+	_ruc varchar(100),
+	_nombre_comercial varchar(100),
+	_nombre_contacto varchar(100),
+	_p_apellido_contacto varchar(100),
+	_s_apellido_contacto varchar(100),
+	_observaciones varchar(100))
+	RETURNS TEXT
+	AS $$
+		DECLARE
+		respuesta TEXT = 'Se registro exitosamente';
+		BEGIN
+			INSERT INTO admin(
+				ruc,
+				nombre_comercial,
+				score,
+				nombre_contacto,
+				p_apellido_contacto,
+				s_apellido_contacto,
+				observaciones)
+			VALUES (
+				_ruc,
+				_nombre_comercial,
+				0,
+				_nombre_contacto,
+				_p_apellido_contacto,
+				_s_apellido_contacto,
+				_observaciones);
+			RETURN respuesta;
+		EXCEPTION
+			WHEN unique_violation THEN
+				RETURN 'ID en uso.';
+			WHEN OTHERS THEN
+				RETURN 'A ocurrido un error interno.';
+		END;
+	$$
+LANGUAGE plpgsql;
+
+
+
+
+CREATE OR REPLACE FUNCTION insertar_stock( 
+	_id_stock varchar(100),
+	_existencias integer,
+	_promociones numeric(4,2),
+	_precio numeric(5,2),
+	_modelo_impresora varchar(100))
+	RETURNS TEXT
+	AS $$
+		DECLARE
+		respuesta TEXT = 'Se registro exitosamente';
+		BEGIN
+			INSERT INTO stock(
+				id_stock,
+				existencias,
+				promociones,
+				precio,
+				modelo_impresora)
+			VALUES (
+				_id_stock,
+				_existencias,
+				1.0,
+				_precio,
+				_modelo_impresora);
+			RETURN respuesta;
+		EXCEPTION
+			WHEN unique_violation THEN
+				RETURN 'ID en uso.';
+			WHEN OTHERS THEN
+				RETURN 'A ocurrido un error interno.';
+		END;
+	$$
+LANGUAGE plpgsql;
+
