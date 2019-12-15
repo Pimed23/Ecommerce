@@ -13,6 +13,8 @@ Para poder poner este proyecto en marcha se deberan considerar los siguientes at
 5- Una vez el usuario halla sido registrado exitosamente podra realizar compras haciendo pedidos de las diferentes impresoras ofrecidas. Nosotros como empresa queremos almacenar todos los pedidos que realizen los clientes, de estos se tomara en cuenta la cantidad de impresoras y el costo parcial. 
 Una vez el cliente halla realizado todos sus pedidos estos se almacenaran en una venta para poder generarle una boleta, en esta se tendra el costo total (la suma de todos los costos parciales de los pedidos), la fecha de la venta y el estado de la transaccion si esta en proceso o finalizada.  
 
+6- Ademas de los clientes, tambien existira un administrador el cual podra manejar todo el inventario de la tienda, para el administrador se registrara un id el cual sera proporcionado por la tienda, sus datos personales y el cargo que ocupa en la empresa.
+
 7- Todas las impresoras tendran un modelo, el cual tiene las siguientes caracteristicas: la marca, el nombre comercial, el tipo de impresora (basicas o multifuncionales), el tipo de cartucho (tinta, toner, recarga continua, etc), el color de impresion (monocromas o color), tambien se almacenaran las dimensiones de la misma (alto, ancho y profundidad), su velocidad y por ultimo una pequeña descripcion.
 
 8- Cada modelo de impresora tendra un stock, el cual debera ser consultado al momento de realizar un pedido, el stock comprendera de el numero de existencias, el precio del modelo y en caso que hubiera promociones de estas mismas. 
