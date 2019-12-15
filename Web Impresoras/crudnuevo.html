@@ -5,7 +5,7 @@
 <title>Cabecera</title>
 <link rel="stylesheet" href="css/crud.css" type="text/css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="js/ajax.js"></script>
+<script src="js/insertar_modelo_proveedor.js"></script>
 </head>
 <body>
     <div id="cabecera">
@@ -22,19 +22,19 @@
     </div>
     <div id="contenido">
         <h2>Insertar Nuevo Producto</h2>
-        <form id="formularioinsertarproducto" action="camino/a/el/script" method="post">
-            Modelo<input type="text"><br>
-            Capacidad<input type="text"><br>
-            Descripcion<input type="text"><br>
-            Marca<input type="text"><br>
-            Velocidad<input type="text"><br>
-            Tipo<input type="text"><br>
-            Nombre Comercial<input type="text"><br>
-            Tipo color impresión<input type="text"><br>
-            Tipo Cartucho<input type="text"><br>
-            Alto<input type="text"><br>
-            Profundidad<input type="text"><br>
-            Ancho<input type="text"><br>
+        <form id="formularioinsertarproducto" method="post">
+            Modelo<input type="text" name="modelo_impresora" id="modelo_impresora" ><br>
+            Capacidad<input type="text" name="capacidad" id="capacidad"><br>
+            Descripcion<input type="text" name="descripcion" id="descripcion"><br>
+            Marca<input type="text" name="marca" id="marca"><br>
+            Velocidad<input type="text" name="velocidad" id="velocidad"><br>
+            Tipo<input type="text" name="tipo" id="tipo"><br>
+            Nombre Comercial<input type="text" name="nombre_comercial" id="nombre_comercial"><br>
+            Tipo color impresión<input type="text" name="tipo_color_impresion" id="tipo_color_impresion"><br>
+            Tipo Cartucho<input type="text" name="tipo_cartucho" id="tipo_cartucho"><br>
+            Alto<input type="text" name="alto" id="alto"><br>
+            Profundidad<input type="text" name="profundidad" id="profundidad"><br>
+            Ancho<input type="text" name="ancho" id="ancho"><br>
             
             <input type="submit" value="Añadir">
         </form>
@@ -43,13 +43,13 @@
     <div id="contenido">
         <h2>Insertar Nuevo Proveedor</h2>
         <form id="formularioinsertarproveedor" action="camino/a/el/script" method="post">
-            RUC<input type="number"><br>
-            Nombre compañia<input type="text"><br>
-            Score<input type="number"><br>
-            Nombre contacto<input type="text"><br>
-            P. Apellido contacto<input type="text"><br>
-            S. Apellido contacto<input type="text"><br>
-            Observaciones<input type="text"><br>
+            RUC<input type="text" name="ruc" id="ruc" ><br>
+            Nombre compañia<input type="text" name="nombre_comercial" id="nombre_comercial"><br>
+            Score<input type="text" name="score" id="score"><br>
+            Nombre contacto<input type="text" name="nombre_contacto" id="nombre_contacto"><br>
+            P. Apellido contacto<input type="text" name="p_apellido_contacto" id="p_apellido_contacto"><br>
+            S. Apellido contacto<input type="text" name="s_apellido_contacto" id="s_apellido_contacto"><br>
+            Observaciones<input type="text" name="observaciones" id="observaciones"><br>
             <input type="submit" value="Añadir">
         </form>
         <div id="formularioinsertarproveedorresultado"></div>
