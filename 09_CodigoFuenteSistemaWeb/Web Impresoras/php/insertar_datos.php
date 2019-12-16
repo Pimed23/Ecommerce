@@ -7,7 +7,7 @@ $user = "postgres";
 $password = "12345678";
 $db = "pfinal_impresoras_beta2";
 $port = 5432;
-$host = "localhost";
+$host = "25.6.206.241";
 $strCnx = "host=$host port=$port dbname=$db user=$user password=$password";
 try{
 	$cnx = pg_connect($strCnx) or die ("Error de conexion. ". pg_last_error());}catch (Exception $e){
@@ -18,6 +18,8 @@ try{
 $sql_query = "";
 $query_result = "";
 $result = "";
+
+////////////////////////////////////////////////////////
 if(isset($_POST['opcion'])){
 	$opcion = $_POST['opcion'];
 	////INSERTANDO DATOS DEPENDIENDO EL CASO///////
@@ -101,14 +103,21 @@ if(isset($_POST['opcion'])){
 				$tipo_impresora = pg_escape_string($_POST['tipo_impresora']);
 				$tipo_color_impresora = pg_escape_string($_POST['tipo_color_impresora']);
 				$tipo_cartucho = pg_escape_string($_POST['tipo_cartucho']);
-				$alto = (floatval)($_POST['alto']);
-				$ancho = (floatval)($_POST['ancho']);
-				$profundidad = (floatval)($_POST['profundidad']);
+				$alto = (float)($_POST['alto']);
+				$ancho = (float)($_POST['ancho']);
+				$profundidad = (float)($_POST['profundidad']);
 				$capacidad = (int)($_POST['capacidad']);
-				$velocidad = (floatval)($_POST['velocidad']);
+				$velocidad = (float)($_POST['velocidad']);
 				$descripcion = pg_escape_string($_POST['descripcion']);
-			
-				$sql_query = "SELECT insertar_modelo_impresora('" . $modelo_impresora . "','" . $marca . "','" . $nombre_comercial . "','" . $tipo_impresora . "','" . $tipo_color_impresora ."','" . $tipo_cartucho . "'," . $alto . "," . $ancho . "," . $profundidad . ", " . $capacidad . ", " . $velocidad. ",'" . $descripcion . "' );";
+				$path_imagen = pg_escape_string($_POST['path_imagen']);	
+
+				$sql_query = "SELECT insertar_modelo_impresora('" . $modelo_impresora . "','" . $marca . "','" . $nombre_comercial . "','" . $tipo_impresora . "','" . $tipo_color_impresora ."','" . $tipo_cartucho . "'," . $alto . "," . $ancho . "," . $profundidad . ", " . $capacidad . ", " . $velocidad. ",'" . $descripcion . "','" .$path_imagen ."');";
+				//$query_result = pg_query($cnx,$sql_query);
+				//$result = pg_fetch_result($query_result,0,0);
+				//uploadImg()
+				/*if($sql_query == "Se registro exitosamente"){
+					uploadImg();		
+				}*/
 			}
 			catch(Exception $e){
 				echo "Excepcion: ", $e->getMessage();
@@ -150,6 +159,7 @@ if(isset($_POST['opcion'])){
 				$modelo_impresora = pg_escape_string($_POST['modelo_impresora']);
 			
 				$sql_query = "SELECT insertar_stock('" . $id_stock . "'," . $existencias . "," . $precio . ",'" . $modelo_impresora . "');";
+
 			}
 			catch(Exception $e){
 				echo "Excepcion: ", $e->getMessage();
@@ -162,6 +172,8 @@ if(isset($_POST['opcion'])){
 	else{
 		$query_result = pg_query($cnx,$sql_query);
 		$result = pg_fetch_result($query_result,0,0);
+		if($result == "Se registro exitosamente")
+			echo "done\n";
 	}
 	echo $result;
 }else{

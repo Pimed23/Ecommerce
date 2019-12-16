@@ -22,7 +22,7 @@
     </div>
     <div id="contenido">
         <h2>Insertar Nuevo Producto</h2>
-        <form id="formularioinsertarproducto" method="post">
+        <form id="formularioinsertarproducto" method="post" >
             Modelo<input type="text" name="modelo_impresora" id="modelo_impresora" ><br>
             Capacidad<input type="text" name="capacidad" id="capacidad"><br>
             Descripcion<input type="text" name="descripcion" id="descripcion"><br>
@@ -37,6 +37,13 @@
             Ancho<input type="text" name="ancho" id="ancho"><br>
             <input type="submit" value="Añadir">
         </form>
+		<form id="formulariouploadimagenproducto" action="handle_file_upload.php" method="post" enctype="multipart/form-data">
+			<h2>Subir imagen del modelo</h2>
+			<label for="fileSelect">Nombre del archivo:</label><br>
+			<input type="file" name="photo" id="fileSelect"><br>
+        	 <p><strong>Nota:</strong> Formatos aceptados .jpg, .jpeg, .gif, .png , maximo 5Mb.</p>
+
+		</form>
         <div id="formularioinsertarproductoresultado"></div>
     </div>
     <div id="contenido">
