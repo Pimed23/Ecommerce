@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <title>Cabecera</title>
 <link rel="stylesheet" href="css/principal.css" type="text/css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="jquery-3.4.1.js"></script>
 <script src="js/slider.js"></script>
+<script src="js/handle_gets.js"></script>
 </head>
 
 <body>
@@ -22,13 +23,16 @@
 
     </div>
     <div id="login">
-        <form id="formulariologin">
-            <label class="labellogin">Usuario</label>
+        <form id="formulariologin" method="post">
+			<label class="labellogin">Usuario</label>
             <input id="usuario" class="forulariocampo" type="text"><br><br>
-            <label class="labellogin">Contraseña</label>
+			<label class="labellogin">Contraseña</label>
             <input id="contrasena" class="forulariocampo" type="password"><br>
             <input id="botonenviarloginid" class="botonenviarlogin" type="submit" value="Ingresar">
         </form>
+		<div id="responselogin">
+
+		</div>
         <div id="botonregistro"> 
             <label class="labelreg">No estas registrado?</label>
             <input class="botonenviarlogin" type="button" value="Registrarme" onclick="location.href='registro.html'">

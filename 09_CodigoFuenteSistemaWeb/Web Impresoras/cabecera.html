@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <title>Cabecera</title>
 <link rel="stylesheet" href="css/principal.css" type="text/css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="jquery-3.4.1.js"></script>
 <script src="js/slider.js"></script>
+<script src="js/handle_gets.js"></script>
 </head>
 
 <body>
@@ -45,25 +46,25 @@
             <p class="titulon">Marca</p>
             <div class="divfiltrosn">-</div>
             <form id="formulariomarcas">
-                Epson<input type="checkbox" class="marca"><br>
-                HP<input type="checkbox" class="marca"><br>
-                Canon<input type="checkbox" class="marca"><br>
-                Brother<input type="checkbox" class="marca"><br>
-                Lexmark<input type="checkbox" class="marca"><br>
-                Dell<input type="checkbox" class="marca"><br>
-                Panasonic<input type="checkbox" class="marca"><br>
-                Samsung<input type="checkbox" class="marca"><br>
-                Sharp<input type="checkbox" class="marca"><br>
-                Toshiba<input type="checkbox" class="marca"><br>
-                Xerox<input type="checkbox" class="marca"><br>
-                Apple<input type="checkbox" class="marca"><br>
+                Epson<input type="checkbox" class="marca" name="EPSON"><br>
+                HP<input type="checkbox" class="marca" name="HP"><br>
+                Canon<input type="checkbox" class="marca" name="CANON"><br>
+                Brother<input type="checkbox" class="marca" name="BROTHER"><br>
+                Lexmark<input type="checkbox" class="marca" name="LEXMARK"><br>
+                Dell<input type="checkbox" class="marca" name="DELL"><br>
+                Panasonic<input type="checkbox" class="marca" name="PANASONIC"><br>
+                Samsung<input type="checkbox" class="marca" name="SAMSUNG"><br>
+                Sharp<input type="checkbox" class="marca" name="SHARP"><br>
+                Toshiba<input type="checkbox" class="marca" name="TOSHIBA"><br>
+                Xerox<input type="checkbox" class="marca" name="XEROX"><br>
+                Apple<input type="checkbox" class="marca" name="APPLE"><br>
                 
             </form>
             <p class="titulon">Tipo</p>
             <div class="divfiltrosn">-</div>
             <form id="formulariotipo">
-                Para el Hogar<input type="checkbox" class="marca"><br>
-                Para la casa<input type="checkbox" class="marca"><br>
+                Basica<input type="checkbox" class="tipoImpresora" id="marcaImpresora" name="Impresora"><br>
+                Multifuncional<input type="checkbox" id="marcaMultifuncional" class="tipoImpresora" name="Multifuncional"><br>
             </form>
             <p class="titulon">Precio</p>
             <div class="divfiltrosn">-</div>
@@ -87,76 +88,6 @@
                 </form>
             </div>
             <div id="cajas">
-                <div class="cajaprin">
-                    <div class="imagen"><img src="images/impre.png"> </div>
-                    <div class="texto">
-                        <h2>Nombre Producto</h2>
-                        <h3>$3000</h3>
-                        <h3 id="cajaver"><a href="paginaimpre.html">Ver más</a></h3>
-                    </div>
-                </div>
-                <div class="division"> -</div>
-                <div class="cajaprin">
-                    <div class="imagen"><img src="images/impre.png"> </div>
-                    <div class="texto">
-                        <h2>Nombre Producto</h2>
-                        <h3>$3000</h3>
-                        <h3 id="cajaver"><a href="paginaimpre.html">Ver más</a></h3>
-                    </div>
-                </div>
-                <div class="division">- </div>
-                <div class="cajaprin">
-                    <div class="imagen"><img src="images/impre.png"> </div>
-                    <div class="texto">
-                        <h2>Nombre Producto</h2>
-                        <h3>$3000</h3>
-                        <h3 id="cajaver"><a href="paginaimpre.html">Ver más</a></h3>
-                    </div>
-                </div>
-                <div class="division"> -</div>
-                <div class="cajaprin">
-                    <div class="imagen"><img src="images/impre.png"> </div>
-                    <div class="texto">
-                        <h2>Nombre Producto</h2>
-                        <h3>$3000</h3>
-                        <h3 id="cajaver"><a href="paginaimpre.html">Ver más</a></h3>
-                    </div>
-                </div>
-                <div class="cajaprin">
-                    <div class="imagen"><img src="images/impre.png"> </div>
-                    <div class="texto">
-                        <h2>Nombre Producto</h2>
-                        <h3>$3000</h3>
-                        <h3 id="cajaver"><a href="paginaimpre.html">Ver más</a></h3>
-                    </div>
-                </div>
-                <div class="division">- </div>
-                <div class="cajaprin">
-                    <div class="imagen"><img src="images/impre.png"> </div>
-                    <div class="texto">
-                        <h2>Nombre Producto</h2>
-                        <h3>$3000</h3>
-                        <h3 id="cajaver"><a href="paginaimpre.html">Ver más</a></h3>
-                    </div>
-                </div>
-                <div class="division">- </div>
-                <div class="cajaprin">
-                    <div class="imagen"><img src="images/impre.png"> </div>
-                    <div class="texto">
-                        <h2>Nombre Producto</h2>
-                        <h3>$3000</h3>
-                        <h3 id="cajaver"><a href="paginaimpre.html">Ver más</a></h3>
-                    </div>
-                </div>
-                <div class="division">- </div>
-                <div class="cajaprin">
-                    <div class="imagen"><img src="images/impre.png"> </div>
-                    <div class="texto">
-                        <h2>Nombre Producto</h2>
-                        <h3>$3000</h3>
-                        <h3 id="cajaver"><a href="paginaimpre.html">Ver más</a></h3>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

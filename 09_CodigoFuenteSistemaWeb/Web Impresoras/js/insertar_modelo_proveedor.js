@@ -31,7 +31,6 @@ function sendData(url,data){
 	request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 	request.send(data);
 }
-
 /////////////////////////////////////////////////
 
 $(document).ready(function() {

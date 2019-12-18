@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <title>Cabecera</title>
 <link rel="stylesheet" href="css/crud.css" type="text/css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="js/ajax.js"></script>
+<script src="jquery-3.4.1.js"></script>
+<script src="js/handle_gets.js"></script>
 </head>
 <body>
     <div id="cabecera">
@@ -22,13 +22,12 @@
     </div>
     <div id="contenido">
         <h2>Insertar Nuevo Producto</h2>
-        <form id="formularioinsertarimpre" action="camino/a/el/script" method="post">
-            Modelo<input type="text"><br>
-            Num Serie<input type="text"><br>
-            Color<input type="text"><br>
-            Garantia<input type="text"><br>
-            <input type="number"><br>
-            <input type="submit" value="Modificar">
+        <form id="formularioinsertarstock" method="post">
+            Modelo: <input type="text" name="modelo_impresora"><br>
+            Cantidad de productos: <input type="number" name="existencias"><br>
+            Precio: <input type="text" name="precio"><br>
+            Id Stock: <input type="text" name="id_stock"><br>          
+            <input type="submit" value="Enviar">
         </form>
         <div id="formularioinsertarimpreresultado"></div>
     </div>

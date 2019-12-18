@@ -1,0 +1,147 @@
+INSERT INTO Persona( 
+    score, correo_electronico, fecha_registro, direccion, distrito,
+    departamento, codigo_postal, referencia, login_cliente, dni, 
+    fecha_nacimiento, nombre, p_apellido, s_apellido, sexo )
+VALUES (
+    0, 'b.pimed@gmail.com', current_date, 'Av. Jesus #2008', Paucarpata,
+    'Arequipa', 054, 'Cerca Grifo San Francisco', 'pimed', '72151498', '1996-03-23',
+    'Brian', 'Pinto', 'Medina', 'M')
+);
+
+
+INSERT INTO Empresa(
+    score, correo_electronico, fecha_registro, direccion, distrito,
+    departamento, codigo_postal, referencia, login_cliente ,ruc, rubro, 
+    tipo_regimen, razon_social, nombre_comercial )
+VALUES (
+    0, 'unsa@gmail.com', current_date, 'Av. Independecia #500', 'Cercado',
+    'Arequipa', 054, 'Cerca al Coliseo Arequipa', 'unsa','20163646499', 'Educacion',
+    'Regimen general', 'Universidad Nacional de San Agustin', 'UNSA'
+);
+
+INSERT INTO Admin(
+    id_admin, login_cliente, nombre, p_apellido, s_apellido, cargo )
+VALUES (
+    '20182909', 'Brian', 'Brian', 'Pinto', 'Medina', 'Empleado'
+);
+
+INSERT INTO Telf_cliente(
+    telefono, id_cliente )
+VALUES (
+    '993393953', 'pimed'
+);
+
+INSERT INTO Tarjeta(
+    nro_tarjeta, nombre_titular, fecha_vencimiento, CVV )
+VALUES (
+    '3150-4289-2549-6670', 'Brian', '03/22', '821'
+);
+
+INSERT INTO Tarjeta_Cliente(
+    id_cliente, nro_tarjeta )
+VALUES (
+    'pimed', '3150-4289-2549-6670'
+);
+
+INSERT INTO Login(
+    username, password, id_tipo_usuario )
+VALUES (
+    'pimed', 'pimed', 1
+);
+
+INSERT INTO Tipo_usuario(
+    id_tipo_usuario, descripcion )
+VALUES (
+    0, 'Administrador'
+);
+
+INSERT INTO Tipo_usuario(
+    id_tipo_usuario, Descripcion )
+VALUES (
+    1, 'Cliente'
+);
+
+INSERT INTO Venta(
+    id_boleta, fecha_venta, costo_total, estado, user_login )
+VALUES (
+    'B0001', current_date, 900, 'FINALIZADO', 'pimed'
+);
+
+INSERT INTO Pedido(
+    id_pedido, cantidad, costo, id_boleta, id_stock )
+VALUES (
+    'P0001', 1, 900, 'B0001', 'S0001'
+);
+
+INSERT INTO Stock(
+    id_stock, existencias, promociones, precio, modelo_impresora )
+VALUES (
+    'S0001', 3, 1.0, 900, 'Impresora Pixma G4100'
+);
+
+INSERT INTO Modelo_Impresora(
+    modelo_impresora, marca, nombre_comercial, tipo_impresora, 
+    tipo_color_impresora, tipo_cartucho, alto, ancho, profundidad, 
+    capacidad, velocidad, descripcion )
+VALUES (
+    'Impresora Pixma G4100', 'CANON', 'PIXMA', 'Multifuncional',
+    'Color', 'Tinta recargable', 19.7, 44.5, 33.0, 100, 8.8, 
+    'La impresora inalámbrica multifuncional PIXMA G4100 es ideal 
+    para todo aquel que busca una impresora accesible, confiable, 
+    de alta calidad, altamente productiva y fácil de usar. Puede 
+    imprimir, copiar, escanear, y enviar o recibir fax. Para lograr
+    una productividad máxima, un alimentador automático de hojas
+    avanzado hace que el escaneo, copia o envío por fax de documentos 
+    de diferentes tamaños sea fácil y rápido.'
+);
+
+
+INSERT INTO Impresora(
+    num_serie, color, garantia, modelo_impresora )
+VALUES (
+    'AB001CD225','Negro', 2, 'Impresora Pixma G4100'
+);
+
+INSERT INTO Impresora(
+    num_serie, color, garantia, modelo_impresora )
+VALUES (
+    'AB002CD226','Blanco', 2, 'Impresora Pixma G4100'
+);
+
+INSERT INTO Impresora(
+    num_serie, color, garantia, modelo_impresora )
+VALUES (
+    'AB003CD227','Negro', 2, 'Impresora Pixma G4100'
+);
+
+INSERT INTO Proveedor(
+    ruc, nombre_comercial, score, nombre_contacto, 
+    p_apellido_contacto, s_apellido_contacto, observaciones )
+VALUES (
+    '31274757500','Kyocera Arequipa', 'Jorge', 'Luna',
+    'Pizarro', 'KYOCERA Arequipa ofrece soluciones de 
+    impresión y gestión documental para la productividad 
+    de su empresa'
+);
+
+INSERT INTO Proveedor_Modelo(
+    modelo_impresora, ruc_proveedor )
+VALUES (
+    'Impresora Pixma G4100', '31274757500'
+);
+
+INSERT INTO Telf_proveedor(
+    telefono, ruc_proveedor )
+VALUES (
+    '958632159', '31274757500'
+);
+
+INSERT INTO Resena(
+    id_resena, fecha_emision, descripcion, calificacion, 
+    modelo_impresora, user_login )
+VALUES (
+    'R0001', current_date, 'Excelente servicio, volveria a 
+    confiar en ustedes', 5, 'Impresora Pixma G4100', 'pimed'
+);
+
+

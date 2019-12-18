@@ -249,7 +249,7 @@ a.control_next {
     overflow: hidden;
 }
 .cajaprin{
-    width: 20%;
+    width: 27%;
     float: left;
     height: auto;
     margin-bottom: 20px;
@@ -380,7 +380,9 @@ footer{
     padding: 30px;
 }
 
-
+#wrapper{
+	overflow:hidden;
+}
 .img-red-footer{
     width: 40px;
 }
